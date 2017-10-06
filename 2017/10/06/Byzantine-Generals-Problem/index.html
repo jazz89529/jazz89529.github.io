@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Keep Going and Flying">
 <meta property="og:description" content="Byzantine Generals Problem">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-06T09:30:02.000Z">
+<meta property="og:updated_time" content="2017-10-06T09:49:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Byzantine Generals Problem">
 <meta name="twitter:description" content="Byzantine Generals Problem">
@@ -360,20 +360,26 @@
 <p>但是非同步系統中，主機有可能故障、網路可能壅塞，這些因素會導致錯誤訊息在系統內傳播，因此需要設計一個容錯技術以確保主機之間可安全且正確通訊。</p>
 <h2 id="Byzantine-Generals-Problem"><a href="#Byzantine-Generals-Problem" class="headerlink" title="Byzantine Generals Problem"></a>Byzantine Generals Problem</h2><p>Leslie Lamport在20世紀80年代提出一個假想問題：</p>
 <p>Byzantine是東羅馬帝國首都，當時幅員遼闊，因此”將軍”們彼此之間傳遞消息是一門學問，一旦出現叛徒將軍，將有可能會影響作戰計畫的進行。</p>
+<blockquote>
 <p>所以，Byzantine Generals Problem指的是：”找一個方法，使得將軍們能夠在一個有叛徒將軍的truthless環境中，建立作戰計畫的共識”</p>
+</blockquote>
 <p>所以就這麼剛好，Byzantine就跟Blockchain的分散式系統問題相類似。</p>
 <ul>
 <li>忠誠將軍-&gt; 正常Node</li>
 <li>叛變將軍-&gt; 損壞的Node</li>
 </ul>
+<blockquote>
 <p>Byzantine Generals Problem可以描述為：</p>
 <ul>
 <li>所有忠誠的且接收到命令的將軍遵守相同的命令</li>
 <li>如果發送命令的將軍是忠誠的，那麼其他忠誠的將軍遵守其發出的命令</li>
 </ul>
+</blockquote>
 <p>Lamport對Byzantine Generals Probloem問題的研究指出：<br>當叛徒個數小於將軍總數的1/3時，透過口頭”同步”通訊，可以滿足以上兩個問題。<br>而如果在通訊是可認證、防篡改情況底下(PKI、數位簽章等)，則在任意多的叛徒的情況底下可以找到解決方案。</p>
 <p><strong>但是，非同步通訊就無法。</strong></p>
-<h2 id="Consensus-Problem"><a href="#Consensus-Problem" class="headerlink" title="Consensus Problem"></a>Consensus Problem</h2><p>Consensus Problem就是找出一個協定或算法，其必須滿足：Agreement、Validity、Termination。</p>
+<h2 id="Consensus-Problem"><a href="#Consensus-Problem" class="headerlink" title="Consensus Problem"></a>Consensus Problem</h2><blockquote>
+<p>Consensus Problem就是找出一個協定或算法，其必須滿足：Agreement、Validity、Termination。</p>
+</blockquote>
 <p>Fischer-Lynch-Paterson理論指出，在非同步通訊的分散式系統當中，只要有一個Byzantine Fault，就不可找到一個演算法，同時滿足Agreement(正常Node必須同意一個值)、Validity(正常Node同意同一個初始值)、Termination(正常Node必須最終確定一個值)。</p>
 <p>專有名詞介紹：<br>        Byzantine Fault：任何觀察者從不同角度看，會表現出不同症狀的缺陷。<br>        Byzantine Failure：因Byzantine Fault而喪失服務。</p>
 <p><em>在private chain和consortium chain中，對Agreement要求相當高</em><br><em>在public chain中，通常採用Eventual Consistency共識算法</em></p>
@@ -403,6 +409,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/06/Geth-Application/" rel="prev" title="Geth Application">
+                Geth Application <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -478,7 +500,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -489,7 +511,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
