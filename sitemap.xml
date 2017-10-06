@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/10/06/Byzantine-Generals-Problem/</loc>
+    
+    <lastmod>2017-10-06T09:22:48.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/10/03/hello-world/</loc>
     
-    <lastmod>2017-10-03T10:07:09.000Z</lastmod>
+    <lastmod>2017-10-04T06:24:22.000Z</lastmod>
     
   </url>
   
