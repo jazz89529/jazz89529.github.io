@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Geth Application">
+<meta name="description" content="Geth, testrpc, and Web3 Turorial">
 <meta name="keywords" content="blockchain">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Geth Application">
-<meta property="og:url" content="http://yoursite.com/2017/10/06/Geth-Application/index.html">
+<meta property="og:title" content="Geth, testrpc, and Web3 Turorial">
+<meta property="og:url" content="http://yoursite.com/2017/10/07/Geth-testrpc-and-Web3/index.html">
 <meta property="og:site_name" content="Struggle">
-<meta property="og:description" content="Geth Application">
+<meta property="og:description" content="Geth, testrpc, and Web3 Turorial">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-06T10:17:31.000Z">
+<meta property="og:updated_time" content="2017-10-07T10:03:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Geth Application">
-<meta name="twitter:description" content="Geth Application">
+<meta name="twitter:title" content="Geth, testrpc, and Web3 Turorial">
+<meta name="twitter:description" content="Geth, testrpc, and Web3 Turorial">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/06/Geth-Application/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/07/Geth-testrpc-and-Web3/"/>
 
 
 
 
 
-  <title>Geth Application | Struggle</title>
+  <title>Geth, testrpc, and Web3 Turorial | Struggle</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/06/Geth-Application/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/07/Geth-testrpc-and-Web3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Coffee">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Geth Application</h1>
+          <h1 class="post-title" itemprop="name headline">Geth, testrpc, and Web3 Turorial</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-06T17:45:05+08:00">
-                2017-10-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-07T17:54:13+08:00">
+                2017-10-07
               </time>
             
 
@@ -323,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/06/Geth-Application/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/10/06/Geth-Application/" itemprop="commentCount">0</span> comments
+                <a href="/2017/10/07/Geth-testrpc-and-Web3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/10/07/Geth-testrpc-and-Web3/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -339,7 +339,7 @@
 
           
               <div class="post-description">
-                  <center>Geth Application</center>
+                  <center>Geth, testrpc, and Web3 Turorial</center>
               </div>
           
 
@@ -356,33 +356,54 @@
       
 
       
-        <h2 id="Testrpc-with-geth-console"><a href="#Testrpc-with-geth-console" class="headerlink" title="Testrpc with geth console"></a>Testrpc with geth console</h2><h3 id="Open-a-node-with-testrpc"><a href="#Open-a-node-with-testrpc" class="headerlink" title="Open a node with testrpc"></a>Open a node with testrpc</h3><p>In a terminal window,</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><blockquote>
+<p>Geth: the command line interface for running a full ethereum node implemented in Go</p>
+<p>testrpc: a Node.js based Ethereum client for testing and development</p>
+</blockquote>
+<p>這裡不說明如何安裝<a href="https://github.com/ethereum/go-ethereum/wiki/geth" target="_blank" rel="external">Geth</a>以及<a href="https://github.com/ethereumjs/testrpc" target="_blank" rel="external">Testrpc</a>，Github上都有完整教學，並不會太困難。</p>
+<p>本文章目標：</p>
+<ul>
+<li>Create a private network(testrpc)</li>
+<li>Use geth to link the private network</li>
+<li>Use Web3.js APi to query account’s balance and transfer ether</li>
+<li>Deploy a smart contract on private network(testrpc)</li>
+</ul>
+<h2 id="Use-testrpc-Web3-and-Geth"><a href="#Use-testrpc-Web3-and-Geth" class="headerlink" title="Use testrpc, Web3 and Geth"></a>Use testrpc, Web3 and Geth</h2><h3 id="創建一個hi資料夾以及用testrpc創建private-network"><a href="#創建一個hi資料夾以及用testrpc創建private-network" class="headerlink" title="創建一個hi資料夾以及用testrpc創建private network"></a>創建一個hi資料夾以及用testrpc創建private network</h3><p>open a terminal(Mac)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ mkdir hi</div></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ testrpc -i 123 --db hi</div></pre></td></tr></table></figure>
-<h3 id="open-geth-console-and-link-it-to-the-node-we-just-opened"><a href="#open-geth-console-and-link-it-to-the-node-we-just-opened" class="headerlink" title="open geth console and link it to the node we just opened"></a>open geth console and link it to the node we just opened</h3><p>leave the node running and open another terminal window</p>
+<p>(-i 是 specify the network id ; –db 是 specify a path to a directory to save the chain database )</p>
+<p>(localhost:8545 意思就是我們可以透過與localhost:8545，而操作那些testrpc創建出來的帳戶)</p>
+<h3 id="使用Geth連結到testrpc開出來的private-network"><a href="#使用Geth連結到testrpc開出來的private-network" class="headerlink" title="使用Geth連結到testrpc開出來的private network"></a>使用Geth連結到testrpc開出來的private network</h3><p>打開另外一個terminal console</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth attach http://localhost:8545</div></pre></td></tr></table></figure>
-<h3 id="try-some-commands-in-the-geth-console"><a href="#try-some-commands-in-the-geth-console" class="headerlink" title="try some commands in the geth console"></a>try some commands in the geth console</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.accounts</div></pre></td></tr></table></figure>
-<p>should output 10 account address (the default settings in testrpc)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.accounts.length //output: 10</div></pre></td></tr></table></figure>
-<h3 id="Check-the-coinbase-address"><a href="#Check-the-coinbase-address" class="headerlink" title="Check the coinbase address"></a>Check the coinbase address</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.coinbase</div></pre></td></tr></table></figure>
-<h3 id="Check-account-balance"><a href="#Check-account-balance" class="headerlink" title="Check account balance"></a>Check account balance</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.getBalance(eth.coinbase)</div></pre></td></tr></table></figure>
-<h3 id="Send-transaction"><a href="#Send-transaction" class="headerlink" title="Send transaction"></a>Send transaction</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.sendTransaction(&#123;from: accs[0], to: accs[1], value: 1000&#125;) // accs = eth.accounts</div></pre></td></tr></table></figure>
-<h3 id="Deploy-smart-contract"><a href="#Deploy-smart-contract" class="headerlink" title="Deploy smart contract"></a>Deploy smart contract</h3><p>go to remix(browser solidity)<br>paste the contract code</p>
-<p>pragma solidity ^0.4.11;</p>
-<pre><code>contract test {
-    function multiply(uint a) returns(uint d){
-        return a * 7;
-    }
+<p>(以下指令皆在第二個開啟的terminal console上)</p>
+<h3 id="確認private-network上有哪些帳戶"><a href="#確認private-network上有哪些帳戶" class="headerlink" title="確認private network上有哪些帳戶"></a>確認private network上有哪些帳戶</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.accounts</div></pre></td></tr></table></figure>
+<p>(會出現第一個terminal testrpc創建出的Availalbe accounts)</p>
+<h3 id="確認default的coinbase是哪一個，通常為第一組account"><a href="#確認default的coinbase是哪一個，通常為第一組account" class="headerlink" title="確認default的coinbase是哪一個，通常為第一組account"></a>確認default的coinbase是哪一個，通常為第一組account</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.coinbase</div></pre></td></tr></table></figure>
+<p>geth 會拿第一組account 當作mining 後的coinbase address(簡單來說，挖礦挖到的錢都會存進去這個account)</p>
+<h3 id="確認coinbase的這個account下有多少錢"><a href="#確認coinbase的這個account下有多少錢" class="headerlink" title="確認coinbase的這個account下有多少錢"></a>確認coinbase的這個account下有多少錢</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.getBalance(eth.coinbase)</div></pre></td></tr></table></figure>
+<p>上面出現的貨幣單位是wei。 單位換算：1 ether = 十的18次方wei</p>
+<h3 id="先將所有帳戶指派給accs這個陣列"><a href="#先將所有帳戶指派給accs這個陣列" class="headerlink" title="先將所有帳戶指派給accs這個陣列"></a>先將所有帳戶指派給accs這個陣列</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ accs = eth.accounts</div></pre></td></tr></table></figure>
+<h3 id="轉帳"><a href="#轉帳" class="headerlink" title="轉帳"></a>轉帳</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.sendTransaction(&#123;from: accs[0], to: accs[1], value: 1000&#125;)</div></pre></td></tr></table></figure>
+<p>以上這些服務都是使用<a href="https://github.com/ethereum/web3.js/" target="_blank" rel="external">Web3</a> API，(文件上面寫的指令語法，都會有web3. 作為開頭，在這個環境當中已經預設好API就是Web3，所以前面的web3可以不用打)</p>
+<p>Value 單位也是wei;此外這指令如果下成功，會回傳這個Transaction的hash，此外，在testrpc會自動處理挖礦的事情，所以交易會自動被記錄到區塊上。</p>
+<h3 id="確認是否轉帳成功"><a href="#確認是否轉帳成功" class="headerlink" title="確認是否轉帳成功"></a>確認是否轉帳成功</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.getBalance(accs[1])</div></pre></td></tr></table></figure>
+<p>檢查是否餘額有改變</p>
+<h2 id="Deploy-smart-contract-on-private-network"><a href="#Deploy-smart-contract-on-private-network" class="headerlink" title="Deploy smart contract on private network"></a>Deploy smart contract on private network</h2><h3 id="操作Browser-Solidity"><a href="#操作Browser-Solidity" class="headerlink" title="操作Browser Solidity"></a>操作Browser Solidity</h3><p>到<a href="https://ethereum.github.io/browser-solidity/#version=soljson-v0.4.17+commit.bdeb9e52.js" target="_blank" rel="external">Browser Solidity</a>貼上以下這段code</p>
+<pre><code>pragma solidity ^0.4.11;
 
-}
-</code></pre><p>Find web3 deploy code under contract details and paste it into a js file</p>
-<p>In geth console,</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ loadScript(<span class="string">'/Users/tina/deploy.js'</span>) // replace the path with yours</div></pre></td></tr></table></figure>
-<p>Then try the function,</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ browser_test_sol_test.multiply.call(7) // output: 49</div></pre></td></tr></table></figure>
-<h2 id="Normal-geth-node-on-private-net-with-geth-console"><a href="#Normal-geth-node-on-private-net-with-geth-console" class="headerlink" title="Normal geth node on private net with geth console"></a>Normal geth node on private net with geth console</h2><h3 id="Init-geth-with-low-mining-difficulty"><a href="#Init-geth-with-low-mining-difficulty" class="headerlink" title="Init geth with low mining difficulty"></a>Init geth with low mining difficulty</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth init genesis.json --datadir hi // remember to remove the hi directory <span class="keyword">if</span> exists</div></pre></td></tr></table></figure>
-<h3 id="Open-geth-node"><a href="#Open-geth-node" class="headerlink" title="Open geth node"></a>Open geth node</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --networkid 123 --datadir hi console</div></pre></td></tr></table></figure>
-<h3 id="Create-two-new-accounts"><a href="#Create-two-new-accounts" class="headerlink" title="Create two new accounts"></a>Create two new accounts</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ personal.newAccount(<span class="string">''</span>) // repeat this two <span class="built_in">times</span></div></pre></td></tr></table></figure>
-<h3 id="Repeat-the-above-commands-4-7-remember-to-do-miner-start-to-manually-mine-the-transactions-and-miner-stop-to-stop-mining"><a href="#Repeat-the-above-commands-4-7-remember-to-do-miner-start-to-manually-mine-the-transactions-and-miner-stop-to-stop-mining" class="headerlink" title="Repeat the above commands (4~7), remember to do miner.start()  to manually mine the transactions, and miner.stop()  to stop mining"></a>Repeat the above commands (4~7), remember to do <code>miner.start()</code>  to manually mine the transactions, and <code>miner.stop()</code>  to stop mining</h3><h3 id="unlock-account-when-needed"><a href="#unlock-account-when-needed" class="headerlink" title="unlock account when needed"></a>unlock account when needed</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ personal.unlockAccount(accs[0], <span class="string">''</span>, 100000)</div></pre></td></tr></table></figure>
+    contract test {
+        function multiply(uint a) returns(uint d){
+            return a * 7;
+        }
+    }
+</code></pre><h3 id="部署智能合約到testrpc-上"><a href="#部署智能合約到testrpc-上" class="headerlink" title="部署智能合約到testrpc 上"></a>部署智能合約到testrpc 上</h3><p>Browser solidity 右邊有一個detail裡面有一個web3deploy，將那段code貼到geth console(第二個terminal) ，就會成功deploy這個smart contract</p>
+<h3 id="呼叫合約中的function"><a href="#呼叫合約中的function" class="headerlink" title="呼叫合約中的function"></a>呼叫合約中的function</h3><p>貼完之後 按下Ctrl + C，然後輸入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ browser_ballot_sol_test   //(位於web3deploy 第二行)</div></pre></td></tr></table></figure>
+<p>我們會看到，下面的address就是指contract’s address</p>
+<p>也會看到multiply這個我們寫好的function在上面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ browser_ballot_sol_test.multiply.call(7)</div></pre></td></tr></table></figure>
+<p>會呼叫我們寫好的方選並帶入7，所以輸出是49</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><p><a href="https://medium.com/taipei-ethereum-meetup" target="_blank" rel="external">Taipei Ethereum Meetup</a></p>
 
       
     </div>
@@ -413,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/06/Byzantine-Generals-Problem/" rel="next" title="Byzantine Generals Problem">
-                <i class="fa fa-chevron-left"></i> Byzantine Generals Problem
+              <a href="/2017/10/06/Geth-Application/" rel="next" title="Geth Application">
+                <i class="fa fa-chevron-left"></i> Geth Application
               </a>
             
           </div>
@@ -422,10 +443,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/07/Geth-testrpc-and-Web3/" rel="prev" title="Geth, testrpc, and Web3 Turorial">
-                Geth, testrpc, and Web3 Turorial <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -581,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Testrpc-with-geth-console"><span class="nav-number">1.</span> <span class="nav-text">Testrpc with geth console</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-a-node-with-testrpc"><span class="nav-number">1.1.</span> <span class="nav-text">Open a node with testrpc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-geth-console-and-link-it-to-the-node-we-just-opened"><span class="nav-number">1.2.</span> <span class="nav-text">open geth console and link it to the node we just opened</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#try-some-commands-in-the-geth-console"><span class="nav-number">1.3.</span> <span class="nav-text">try some commands in the geth console</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check-the-coinbase-address"><span class="nav-number">1.4.</span> <span class="nav-text">Check the coinbase address</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Check-account-balance"><span class="nav-number">1.5.</span> <span class="nav-text">Check account balance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Send-transaction"><span class="nav-number">1.6.</span> <span class="nav-text">Send transaction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-smart-contract"><span class="nav-number">1.7.</span> <span class="nav-text">Deploy smart contract</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Normal-geth-node-on-private-net-with-geth-console"><span class="nav-number">2.</span> <span class="nav-text">Normal geth node on private net with geth console</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Init-geth-with-low-mining-difficulty"><span class="nav-number">2.1.</span> <span class="nav-text">Init geth with low mining difficulty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-geth-node"><span class="nav-number">2.2.</span> <span class="nav-text">Open geth node</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-two-new-accounts"><span class="nav-number">2.3.</span> <span class="nav-text">Create two new accounts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeat-the-above-commands-4-7-remember-to-do-miner-start-to-manually-mine-the-transactions-and-miner-stop-to-stop-mining"><span class="nav-number">2.4.</span> <span class="nav-text">Repeat the above commands (4~7), remember to do miner.start()  to manually mine the transactions, and miner.stop()  to stop mining</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unlock-account-when-needed"><span class="nav-number">2.5.</span> <span class="nav-text">unlock account when needed</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-testrpc-Web3-and-Geth"><span class="nav-number">2.</span> <span class="nav-text">Use testrpc, Web3 and Geth</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#創建一個hi資料夾以及用testrpc創建private-network"><span class="nav-number">2.1.</span> <span class="nav-text">創建一個hi資料夾以及用testrpc創建private network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Geth連結到testrpc開出來的private-network"><span class="nav-number">2.2.</span> <span class="nav-text">使用Geth連結到testrpc開出來的private network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#確認private-network上有哪些帳戶"><span class="nav-number">2.3.</span> <span class="nav-text">確認private network上有哪些帳戶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#確認default的coinbase是哪一個，通常為第一組account"><span class="nav-number">2.4.</span> <span class="nav-text">確認default的coinbase是哪一個，通常為第一組account</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#確認coinbase的這個account下有多少錢"><span class="nav-number">2.5.</span> <span class="nav-text">確認coinbase的這個account下有多少錢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先將所有帳戶指派給accs這個陣列"><span class="nav-number">2.6.</span> <span class="nav-text">先將所有帳戶指派給accs這個陣列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#轉帳"><span class="nav-number">2.7.</span> <span class="nav-text">轉帳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#確認是否轉帳成功"><span class="nav-number">2.8.</span> <span class="nav-text">確認是否轉帳成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deploy-smart-contract-on-private-network"><span class="nav-number">3.</span> <span class="nav-text">Deploy smart contract on private network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作Browser-Solidity"><span class="nav-number">3.1.</span> <span class="nav-text">操作Browser Solidity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署智能合約到testrpc-上"><span class="nav-number">3.2.</span> <span class="nav-text">部署智能合約到testrpc 上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#呼叫合約中的function"><span class="nav-number">3.3.</span> <span class="nav-text">呼叫合約中的function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考來源"><span class="nav-number">4.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
             
 
           </div>
