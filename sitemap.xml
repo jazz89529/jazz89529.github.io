@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/10/09/install-mysql-in-mac/</loc>
+    
+    <lastmod>2017-10-08T16:24:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/10/07/Geth-Application-1/</loc>
     
-    <lastmod>2017-10-07T11:06:56.000Z</lastmod>
+    <lastmod>2017-10-08T16:24:36.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/10/07/Geth-testrpc-and-Web3/</loc>
     
-    <lastmod>2017-10-07T11:06:55.000Z</lastmod>
+    <lastmod>2017-10-08T16:24:35.000Z</lastmod>
     
   </url>
   
