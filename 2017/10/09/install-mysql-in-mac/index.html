@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Struggle">
 <meta property="og:description" content="Install MySQL on Mac OSX">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-08T16:24:38.000Z">
+<meta property="og:updated_time" content="2017-10-08T16:30:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Install MySQL on Mac OSX">
 <meta name="twitter:description" content="Install MySQL on Mac OSX">
@@ -356,15 +356,15 @@
       
 
       
-        <h2 id="Install-MySQL-on-OS-X"><a href="#Install-MySQL-on-OS-X" class="headerlink" title="Install MySQL on OS X"></a>Install MySQL on OS X</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>不知道第幾版之後的MySQL裝在Mac OS上，就會有些麻煩，以下是自己的一些筆記和心得，提供給有需要的人。</p>
-<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>按照<a href="https://dev.mysql.com/doc/refman/5.6/en/osx-installation-pkg.html" target="_blank" rel="external">MySQl Reference Manual</a> 指示安裝</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>不知道第幾版之後的MySQL裝在Mac OS上，就會有些麻煩，以下是自己的一些筆記和心得，提供給有需要的人。</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>按照<a href="https://dev.mysql.com/doc/refman/5.6/en/osx-installation-pkg.html" target="_blank" rel="external">MySQL Reference Manual</a> 指示安裝</p>
 <p>安裝完後，可至系統偏好設定中點選MySQL，點選Start MySQL Server。</p>
 <p><em>p.s. 上述步驟完成後，在Terminal輸入mysql，若出現not found 等訊息，記得設定一下環境變數。</em></p>
 <p><em>設定方法：</em></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ vim ~/.bash_profile</div><div class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/usr/<span class="built_in">local</span>/mysql/bin</div></pre></td></tr></table></figure>
-<h3 id="Connect-MySQL"><a href="#Connect-MySQL" class="headerlink" title="Connect MySQL"></a>Connect MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mysql -u root -p</div><div class="line">Enter password:</div><div class="line">Access Denied.........</div></pre></td></tr></table></figure>
+<h2 id="Connect-MySQL"><a href="#Connect-MySQL" class="headerlink" title="Connect MySQL"></a>Connect MySQL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mysql -u root -p</div><div class="line">Enter password:</div><div class="line">Access Denied.........</div></pre></td></tr></table></figure>
 <p>(因為在安裝的時候，系統會給你一組預設密碼，但是大家通常都會忘記密碼，所以以下說明如何重設密碼)</p>
-<h3 id="Modify-Password"><a href="#Modify-Password" class="headerlink" title="Modify Password"></a>Modify Password</h3><p>首先，先至系統偏好設定中的MySQL，關掉MySQL的服務</p>
+<h2 id="Modify-Password"><a href="#Modify-Password" class="headerlink" title="Modify Password"></a>Modify Password</h2><p>首先，先至系統偏好設定中的MySQL，關掉MySQL的服務</p>
 <p>開啟Terminal</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo mysqld_safe --skip-grant-tables</div></pre></td></tr></table></figure>
 <p>接著，打開另外一個Terminal</p>
@@ -373,9 +373,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ mysql&gt; use mysql;</div><div class="line">$ mysql&gt; describe user;</div><div class="line">$ mysql&gt; UPDATE mysql.user SET authentication_string = PASSWORD(<span class="string">'123456'</span>) <span class="built_in">where</span> User=<span class="string">'root'</span>;</div><div class="line">$ mysql&gt; flush privileges;</div></pre></td></tr></table></figure>
 <p>此時已將密碼設定為123456，接著只要重新啟動即可</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mysql -u root -p</div><div class="line">Enter Password: 123456</div></pre></td></tr></table></figure>
-<h3 id="Related-Information"><a href="#Related-Information" class="headerlink" title="Related Information"></a>Related Information</h3><p>進入Mysql後，可以透過以下指令，知道userName, host, db,…等資訊</p>
+<h2 id="Related-Information"><a href="#Related-Information" class="headerlink" title="Related Information"></a>Related Information</h2><p>進入Mysql後，可以透過以下指令，知道userName, host, db,…等資訊</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ show processlist;</div></pre></td></tr></table></figure>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://dev.mysql.com/doc/refman/5.6/en/osx-installation-pkg.html" target="_blank" rel="external">MySQL Reference Manual</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://dev.mysql.com/doc/refman/5.6/en/osx-installation-pkg.html" target="_blank" rel="external">MySQL Reference Manual</a></p>
 <p><a href="https://stackoverflow.com/" target="_blank" rel="external">Stack Overflow</a></p>
 
       
@@ -505,7 +505,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -571,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-MySQL-on-OS-X"><span class="nav-number">1.</span> <span class="nav-text">Install MySQL on OS X</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install"><span class="nav-number">1.2.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connect-MySQL"><span class="nav-number">1.3.</span> <span class="nav-text">Connect MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modify-Password"><span class="nav-number">1.4.</span> <span class="nav-text">Modify Password</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Related-Information"><span class="nav-number">1.5.</span> <span class="nav-text">Related Information</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">1.6.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install"><span class="nav-number">2.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connect-MySQL"><span class="nav-number">3.</span> <span class="nav-text">Connect MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modify-Password"><span class="nav-number">4.</span> <span class="nav-text">Modify Password</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-Information"><span class="nav-number">5.</span> <span class="nav-text">Related Information</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
