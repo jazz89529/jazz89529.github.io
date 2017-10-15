@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="blockchain," />
+  <meta name="keywords" content="Database," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Use Geth to Create a Prive Network">
-<meta name="keywords" content="blockchain">
+<meta name="description" content="Getting Started with MySQL">
+<meta name="keywords" content="Database">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Use Geth to Create a Private Network">
-<meta property="og:url" content="http://yoursite.com/2017/10/07/Geth-Application-1/index.html">
+<meta property="og:title" content="Getting Started with MySQL">
+<meta property="og:url" content="http://yoursite.com/2017/10/15/GettingStartedWithMySQL/index.html">
 <meta property="og:site_name" content="Struggle">
-<meta property="og:description" content="Use Geth to Create a Prive Network">
+<meta property="og:description" content="Getting Started with MySQL">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-10-12T05:57:52.000Z">
+<meta property="og:updated_time" content="2017-10-15T08:53:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Use Geth to Create a Private Network">
-<meta name="twitter:description" content="Use Geth to Create a Prive Network">
+<meta name="twitter:title" content="Getting Started with MySQL">
+<meta name="twitter:description" content="Getting Started with MySQL">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/07/Geth-Application-1/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/15/GettingStartedWithMySQL/"/>
 
 
 
 
 
-  <title>Use Geth to Create a Private Network | Struggle</title>
+  <title>Getting Started with MySQL | Struggle</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/07/Geth-Application-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/15/GettingStartedWithMySQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Coffee">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Use Geth to Create a Private Network</h1>
+          <h1 class="post-title" itemprop="name headline">Getting Started with MySQL</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-07T18:59:49+08:00">
-                2017-10-07
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-15T16:22:36+08:00">
+                2017-10-15
               </time>
             
 
@@ -305,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blockchain-Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Blockchain Technology</span>
+                  <a href="/categories/Database-Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Database Technology</span>
                   </a>
                 </span>
 
@@ -323,8 +323,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/07/Geth-Application-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/10/07/Geth-Application-1/" itemprop="commentCount">0</span> comments
+                <a href="/2017/10/15/GettingStartedWithMySQL/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/10/15/GettingStartedWithMySQL/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -339,7 +339,7 @@
 
           
               <div class="post-description">
-                  <center>Use Geth to Create a Prive Network</center>
+                  <center>Getting Started with MySQL</center>
               </div>
           
 
@@ -356,83 +356,66 @@
       
 
       
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>繼上篇成功在testrpc上創建private network、轉帳、部署智能合約及智能合約外，這篇要教學的是如何透過geth 本身，創建private network，並在上面進行轉帳等功能。</p>
-<p>Geth 與 testrpc架設private network差別在於：</p>
-<table>
-<thead>
-<tr>
-<th>private network</th>
-<th>創建帳戶</th>
-<th>帳戶後是否有錢</th>
-<th>解鎖帳戶</th>
-<th>挖礦</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Geth</td>
-<td>需手動添加</td>
-<td>無</td>
-<td>需要解鎖帳戶才可轉帳</td>
-<td>需手動挖礦</td>
-</tr>
-<tr>
-<td>testrpc</td>
-<td>自動添加十組給你</td>
-<td>預設有一筆錢</td>
-<td>不需</td>
-<td>自動挖礦</td>
-</tr>
-</tbody>
-</table>
-<p><strong>本章目標：</strong></p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>這篇主要介紹在安裝完MySQL後，如何透過簡單的console指令，達到操作資料庫、增刪改查資料的內容。</p>
+<h2 id="Basic-Command"><a href="#Basic-Command" class="headerlink" title="Basic Command"></a>Basic Command</h2><p><strong>登入</strong>指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mysql -u root -p</div><div class="line">Enter Password:</div></pre></td></tr></table></figure>
+<p><strong>離開</strong>指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; quit</div></pre></td></tr></table></figure>
+<p><strong>查看目前有哪些資料庫</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show databases;</div></pre></td></tr></table></figure>
+<p><strong>創建新的資料庫</strong>(名為pets)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create database pets;</div><div class="line">mysql&gt; show databases;</div></pre></td></tr></table></figure>
+<p><strong>切換資料庫</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; use pets;</div></pre></td></tr></table></figure>
+<p><strong>創建資料表</strong>，並加上一些欄位跟設值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; create table cats</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; (</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; id      int unsigned not null auto_increment,</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; name    varchar(150) not null,</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; owner   varchar(150) not null,</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; birth   date not null,</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; primary key (id)</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; );</div></pre></td></tr></table></figure>
+<p><em>這裡由於排版一直出錯，故分開寫，但實際上應該接續著打</em></p>
+<p><strong>查看資料表</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show tables;</div></pre></td></tr></table></figure>
+<p>顯示資料表的<strong>詳細欄位資訊</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; describe cats;</div></pre></td></tr></table></figure>
+<p>顯示一個創造資料表的敘述，\G會整齊排放</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show create table cats \G;</div></pre></td></tr></table></figure>
+<h2 id="Adding"><a href="#Adding" class="headerlink" title="Adding"></a>Adding</h2><p>[方法一：手動輸入] <strong>增加三筆資料</strong>，格式需要注意</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; insert into cats ( name, owner, birth ) values</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; ( ‘Sandy’, ‘Lennon’, ‘2015-01-03’ ),</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; ( ‘Cookie’, ‘Casey’, ‘2013-11-13’ ),</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-&gt; ( ‘Charlie’, ‘River’, ‘2016-05-21’ );</div></pre></td></tr></table></figure>
+<p><em>這裡由於排版一直出錯，故分開寫，但實際上應該接續著打</em></p>
+<p>[方法二：資料匯入] <strong>載入外部資料</strong>，路徑請依照自己檔案位置設定</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; load data <span class="built_in">local</span> infile “/Users/david/data.txt” into table cats;</div></pre></td></tr></table></figure>
 <ul>
-<li><p>Create a private network(geth)</p>
+<li><p>mac如果要編寫txt檔案，需要用”文字編輯”軟體，進去後用shift + command + T，以進入編輯，存檔要存成.txt</p>
 </li>
-<li><p>Use geth to link the private network</p>
-</li>
-<li><p>Use Web3.js API to query account’s balance and transfer ether</p>
+<li><p>不同欄位間，以tab隔開。因為id是第一個欄位，此欄位毋須填寫，所以這裡如果要新增，要先按一次tab再開始輸入值。</p>
 </li>
 </ul>
-<h2 id="Geth-操作"><a href="#Geth-操作" class="headerlink" title="Geth 操作"></a>Geth 操作</h2><p>genesis.json  file 是該區塊鏈的創始區塊，會讓我後續的設定都照這個json檔走。</p>
-<p><em>hi資料夾要為空</em></p>
-<h3 id="建立genesis-json-及private-network"><a href="#建立genesis-json-及private-network" class="headerlink" title="建立genesis.json 及private network"></a>建立genesis.json 及private network</h3><p>開新的terminal，並輸入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim genesis.json</div></pre></td></tr></table></figure>
-<p>(記得要先寫好genesis.json檔案)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ &#123;</div><div class="line">	<span class="string">"config"</span>:&#123;&#125;,</div><div class="line">	<span class="string">"gasLimit"</span>:<span class="string">"2000000000000"</span>,</div><div class="line">	<span class="string">"difficulty"</span>:<span class="string">"1"</span>,</div><div class="line">	<span class="string">"alloc"</span>:&#123;&#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<p>(這裏vim編輯器是mac跟linux-based作業系統用的，你也可以用其他編輯器也可，vim使用：就是進入vim視窗之後，按下a是編輯模式，打好文檔以後，按下esc並輸入 :wq 來存檔並離開)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth init genesis.json --datadir hi</div></pre></td></tr></table></figure>
-<p>輸入這個指令，要先寫好genesis.json和創建hi這個folder</p>
-<p>(datadir這個參數是創建後的資料存放位置路徑資料夾)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ geth --networkid 123 --datadir hi console</div></pre></td></tr></table></figure>
-<p>(這裡可以直接同時開好Ethereum Node和geth console)</p>
-<p>(networkid 是連上private network必要參數，如果沒有輸入就會連到Main Net，會需要同步超久)</p>
-<p>(datadir 後接的參數必須要跟初始化(geth init genesis.json - -datadir hi)的是一樣的folder)</p>
-<h3 id="Web3-js相關操作"><a href="#Web3-js相關操作" class="headerlink" title="Web3.js相關操作"></a>Web3.js相關操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.accounts</div></pre></td></tr></table></figure>
-<p>(但這跟testrpc不一樣，testrpc會給你初始化設定10組，這裡沒有會回傳一個空陣列)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ personal.newAccount(<span class="string">' '</span>)</div></pre></td></tr></table></figure>
-<p>(會新增一個account，其密碼為空，打兩次會新增兩個account)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.accounts</div></pre></td></tr></table></figure>
-<p>(會出現兩個account)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ accs = eth.accounts</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.getBalance(accs[0])</div></pre></td></tr></table></figure>
-<p>(應該會0元，因為在這裡，沒有像testrpc一樣可以初始化ether)</p>
-<h3 id="用挖礦賺錢"><a href="#用挖礦賺錢" class="headerlink" title="用挖礦賺錢"></a>用挖礦賺錢</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ miner.start()</div></pre></td></tr></table></figure>
-<p>(開始挖礦)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ miner.stop()</div></pre></td></tr></table></figure>
-<p>(停止挖礦，要趕快停止，否則會有DAG那個訊息一直跳，可能要一陣子才會停)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.getBalance(accs[0])</div></pre></td></tr></table></figure>
-<p>(應該會有錢進帳)</p>
-<h3 id="解鎖帳戶並轉帳"><a href="#解鎖帳戶並轉帳" class="headerlink" title="解鎖帳戶並轉帳"></a>解鎖帳戶並轉帳</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ personal.unlockAccount(accs[0], <span class="string">' '</span>,10000000)</div></pre></td></tr></table></figure>
-<p>(第一個參數是要解鎖的帳戶，第二個是解鎖密碼(當初我們設為空)，第三個是解鎖的可以持續多久的時間)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.sendTransaction(&#123; from: accs[0], to: accs[1], value: 1000&#125;)</div></pre></td></tr></table></figure>
-<p>(打完這行指令，因為這是非自動，所以，錢都還沒轉過去，需要礦工來挖礦)</p>
-<h3 id="用挖礦確認交易"><a href="#用挖礦確認交易" class="headerlink" title="用挖礦確認交易"></a>用挖礦確認交易</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ miner.start()</div></pre></td></tr></table></figure>
-<p>(一下子就可以停了，因為genesis的difficulty難度超低)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ miner.stop()</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ eth.getBalance(accs[1])</div></pre></td></tr></table></figure>
-<p>(會出現1000)</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://medium.com/taipei-ethereum-meetup" target="_blank" rel="external">Taipei Ethereum Meetup</a></p>
+<p>在name欄位後面，<strong>增加一個新的欄位</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql&gt; alter table cats add gender char(1) after name;</div><div class="line">mysql&gt; describe cats;</div></pre></td></tr></table></figure>
+<h2 id="Retrieving"><a href="#Retrieving" class="headerlink" title="Retrieving"></a>Retrieving</h2><p>撈出cats資料表中，所有欄位的records</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select * from cats;</div></pre></td></tr></table></figure>
+<p>撈出cats資料表中的name欄位，且符合條件的records</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; select name from cats <span class="built_in">where</span> owner = ‘Casey’;</div></pre></td></tr></table></figure>
+<h3 id="Updating"><a href="#Updating" class="headerlink" title="Updating"></a>Updating</h3><p>更新欄位<strong>records</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; update cats <span class="built_in">set</span> name = ‘Mary’ <span class="built_in">where</span> id=2;</div></pre></td></tr></table></figure>
+<h2 id="Deleting"><a href="#Deleting" class="headerlink" title="Deleting"></a>Deleting</h2><p>刪除cats資料表中符合條件的<strong>records</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; delete from cats <span class="built_in">where</span> name = ‘Cookie’;</div></pre></td></tr></table></figure>
+<p>刪除cats資料表中的gender <strong>欄位</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; alter table cats drop gender;</div></pre></td></tr></table></figure>
+<p>刪除<strong>資料表</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; drop table cats;</div></pre></td></tr></table></figure>
+<p>刪除<strong>資料庫</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; drop database pets;</div></pre></td></tr></table></figure>
+<h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><p>改變mysql prompt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql&gt; prompt \u@\h \d&gt;</div><div class="line">root@localhost pets&gt;</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://dev.mysql.com/doc/mysql-getting-started/en/" target="_blank" rel="external">MySQL Doc</a></p>
 
       
     </div>
@@ -450,7 +433,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/blockchain/" rel="tag"># blockchain</a>
+            <a href="/tags/Database/" rel="tag"># Database</a>
           
         </div>
       
@@ -463,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/07/Geth-testrpc-and-Web3/" rel="next" title="Use testrpc to Create a Private Network">
-                <i class="fa fa-chevron-left"></i> Use testrpc to Create a Private Network
+              <a href="/2017/10/09/install-mysql-in-mac/" rel="next" title="Install MySQL on Mac OSX">
+                <i class="fa fa-chevron-left"></i> Install MySQL on Mac OSX
               </a>
             
           </div>
@@ -472,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/09/install-mysql-in-mac/" rel="prev" title="Install MySQL on Mac OSX">
-                Install MySQL on Mac OSX <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -631,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Geth-操作"><span class="nav-number">2.</span> <span class="nav-text">Geth 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#建立genesis-json-及private-network"><span class="nav-number">2.1.</span> <span class="nav-text">建立genesis.json 及private network</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web3-js相關操作"><span class="nav-number">2.2.</span> <span class="nav-text">Web3.js相關操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用挖礦賺錢"><span class="nav-number">2.3.</span> <span class="nav-text">用挖礦賺錢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解鎖帳戶並轉帳"><span class="nav-number">2.4.</span> <span class="nav-text">解鎖帳戶並轉帳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用挖礦確認交易"><span class="nav-number">2.5.</span> <span class="nav-text">用挖礦確認交易</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Command"><span class="nav-number">2.</span> <span class="nav-text">Basic Command</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adding"><span class="nav-number">3.</span> <span class="nav-text">Adding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrieving"><span class="nav-number">4.</span> <span class="nav-text">Retrieving</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Updating"><span class="nav-number">4.1.</span> <span class="nav-text">Updating</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deleting"><span class="nav-number">5.</span> <span class="nav-text">Deleting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Others"><span class="nav-number">6.</span> <span class="nav-text">Others</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
