@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/13/JavaScript-Promise-Introduction/</loc>
+    
+    <lastmod>2018-01-13T10:08:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/10/15/GettingStartedWithMySQL/</loc>
     
     <lastmod>2017-10-15T08:53:24.000Z</lastmod>
