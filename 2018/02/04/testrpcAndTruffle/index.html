@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="blockchain," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Use Truffle to Deploy Contract on Testrpc">
+<meta name="keywords" content="blockchain">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Use Truffle to Deploy Contract on Testrpc">
+<meta property="og:url" content="http://yoursite.com/2018/02/04/testrpcAndTruffle/index.html">
+<meta property="og:site_name" content="Struggle">
+<meta property="og:description" content="Use Truffle to Deploy Contract on Testrpc">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-02-04T05:02:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Use Truffle to Deploy Contract on Testrpc">
+<meta name="twitter:description" content="Use Truffle to Deploy Contract on Testrpc">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/04/testrpcAndTruffle/"/>
+
+
+
+
+
+  <title>Use Truffle to Deploy Contract on Testrpc | Struggle</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Struggle</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/04/testrpcAndTruffle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Coffee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Struggle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Use Truffle to Deploy Contract on Testrpc</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-04T12:58:47+08:00">
+                2018-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Blockchain-Technology/" itemprop="url" rel="index">
+                    <span itemprop="name">Blockchain Technology</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/02/04/testrpcAndTruffle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2018/02/04/testrpcAndTruffle/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  <center>Use Truffle to Deploy Contract on Testrpc</center>
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>這篇會使用到Node.js、testrpc、Solidity、Truffle等開發工具來進行教學，教學目標為使用Truffle套件來將撰寫好的智能合約部署到testrpc上。</p>
+<p>環境要求：安裝Node.js、Testrpc、Truffle</p>
+<h3 id="Start-testrpc"><a href="#Start-testrpc" class="headerlink" title="Start testrpc"></a>Start testrpc</h3><p>如果採用callback處理非同步事件，如果很多層的話，會造成Callback Hell，導致可讀性下降，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ testrpc</div></pre></td></tr></table></figure></p>
+<h3 id="Create-a-Project"><a href="#Create-a-Project" class="headerlink" title="Create a Project"></a>Create a Project</h3><p>開啟另一個Terminal，輸入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir hello</div><div class="line">$ <span class="built_in">cd</span> hello</div><div class="line">$ truffle init</div></pre></td></tr></table></figure>
+<p>在專案目錄資料夾底下找到<strong>contracts/</strong>資料夾，這個資料夾會放該專案所包含的所有sol檔案。</p>
+<h3 id="Write-a-Contract"><a href="#Write-a-Contract" class="headerlink" title="Write a Contract"></a>Write a Contract</h3><p>現在在<strong>contracts/</strong>資料夾新增一個HelloWorld.sol檔案，該檔案內容如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.11</span>; <span class="comment">// 指定目前使用的Solidity版本</span></div><div class="line"><span class="comment">// 不同版本會編譯出不同Bytecode</span></div><div class="line"><span class="comment">// 雖然一個sol檔案可以有很多個contract(class)，但不建議</span></div><div class="line">contract HelloWorld &#123; <span class="comment">//Contract關鍵字類似於class </span></div><div class="line"><span class="comment">//這句大約等於class HelloWorld extends Contract </span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) <span class="title">public</span> <span class="title">returns</span> (<span class="params">string</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="string">"Hello World"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">echo</span>(<span class="params">string name</span>) <span class="title">constant</span> <span class="title">returns</span> (<span class="params">string</span>) </span>&#123;</div><div class="line">    <span class="comment">// 用constant宣告，表示呼叫該方法不會改變區塊鏈狀態</span></div><div class="line">    <span class="comment">// 使用truffle-contract來呼叫，會用call來呼叫，不會為消耗gas</span></div><div class="line">	  <span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>備註：Terminal打上 truffle version可查看Truffle以及Solidity版本</p>
+<h3 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h3><p>在專案根目錄下，使用以下指令，將HelloWorld.sol編譯成EVM可以讀懂的Bytecode<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> truffle compile</span></div></pre></td></tr></table></figure></p>
+<p>成功的話，會在<strong>build/contracts/</strong>下，多出一個HelloWorld.json檔案</p>
+<h3 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h3><h4 id="Step1-Deployed-Contract-Settings"><a href="#Step1-Deployed-Contract-Settings" class="headerlink" title="Step1. Deployed Contract Settings"></a>Step1. Deployed Contract Settings</h4><p>migrations/目錄下維護著方便部署合約的腳本，這些腳本還可以遷移合約中的一些資料。</p>
+<p>打開<strong>migrations/2_deploy_contracts.js</strong> 加入以下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> HelloWorld = artifacts.require(<span class="string">"./HelloWorld.sol"</span>);</div><div class="line"><span class="comment">// artifacts.require 是用來取得準備部署的合約</span></div><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">deployer</span>) </span>&#123;</div><div class="line">  deployer.deploy(HelloWorld);</div><div class="line">  <span class="comment">// deployer.deploy用來部署，這裡的HelloWorld是contract名稱！</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>備註：<strong>migrations</strong>下的檔案會有1,2,..開頭，程式會依照編碼順序執行</p>
+<h4 id="Step2-NetWork-Settings"><a href="#Step2-NetWork-Settings" class="headerlink" title="Step2. NetWork Settings"></a>Step2. NetWork Settings</h4><p>打開<strong>truffle.js</strong>，通常不需要再更動，如果有需要再改即可，基本上應該是如下情況：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  networks: &#123;</div><div class="line">    development: &#123;</div><div class="line">      host: <span class="string">"localhost"</span>,</div><div class="line">      port: <span class="number">8545</span>,</div><div class="line">      network_id: <span class="string">"*"</span> <span class="comment">// Match any network id</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="Step3-Run-Deploy-Command"><a href="#Step3-Run-Deploy-Command" class="headerlink" title="Step3. Run Deploy Command"></a>Step3. Run Deploy Command</h4><p>使用以下指令用以部署：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> truffle migrate</span></div></pre></td></tr></table></figure>
+<p>備註：切到testrpc視窗下，如果testrpc 有反應，即代表成功</p>
+<h3 id="Intercate-with-Deployed-Contract"><a href="#Intercate-with-Deployed-Contract" class="headerlink" title="Intercate with Deployed Contract"></a>Intercate with Deployed Contract</h3><p>truffle 提供CLI，可與合約進行互動，終端機輸入以下指令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> truffle console</span></div><div class="line">truffle (development)&gt;</div><div class="line"><span class="meta">&gt;</span><span class="bash"><span class="built_in">let</span> contract</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">HelloWorld.deployed().<span class="keyword">then</span>(instance =&gt; contract = instance)</span></div><div class="line"><span class="meta">&gt;</span><span class="bash">contract.sayHello.call()</span></div><div class="line">'Hello World'</div><div class="line"><span class="meta">&gt;</span><span class="bash">contract.echo.call(<span class="string">'Ya!!'</span>)</span></div><div class="line">'Ya!!'</div></pre></td></tr></table></figure>
+<p>備註：.call()只用於read-only資料，這樣就不需要提供gas，如果會改變區塊鏈上的狀態.call()就不能用。</p>
+<h3 id="Modify-Contracts"><a href="#Modify-Contracts" class="headerlink" title="Modify Contracts"></a>Modify Contracts</h3><p>如果合約有更改，要記得重新編譯和部署，使用以下指令：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span><span class="bash"> truffle compile</span></div><div class="line"><span class="meta">$</span><span class="bash"> truffle migrate --reset</span></div><div class="line"><span class="meta">$</span><span class="bash"> truffle console</span></div><div class="line">...</div></pre></td></tr></table></figure></p>
+<h3 id="New-Version-Truffle"><a href="#New-Version-Truffle" class="headerlink" title="New Version Truffle"></a>New Version Truffle</h3><p>可以直接使用<strong>truffle develop</strong>命令，不需要額外安裝testrpc，即可快速進行開發。<br>相關指令跟上述大多相同，包含可以直接下<strong>compile</strong>、<strong>migrate</strong>、<strong>console</strong>等指令。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a href="https://blog.gasolin.idv.tw/2017/09/06/howto-write-a-smart-contract/" target="_blank" rel="external">如何撰寫智能合約(Smart Contract)?(I)</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blockchain/" rel="tag"># blockchain</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/13/JavaScript-Promise-Introduction/" rel="next" title="JavaScript Promise Introduction">
+                <i class="fa fa-chevron-left"></i> JavaScript Promise Introduction
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="Coffee" />
+            
+              <p class="site-author-name" itemprop="name">Coffee</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/profile.php?id=100002665725764" target="_blank" title="FB Page">
+                    
+                      <i class="fa fa-fw fa-facebook"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:jazz89529@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/jazz89529" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Start-testrpc"><span class="nav-number">2.</span> <span class="nav-text">Start testrpc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-Project"><span class="nav-number">3.</span> <span class="nav-text">Create a Project</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Write-a-Contract"><span class="nav-number">4.</span> <span class="nav-text">Write a Contract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compile"><span class="nav-number">5.</span> <span class="nav-text">Compile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy"><span class="nav-number">6.</span> <span class="nav-text">Deploy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Step1-Deployed-Contract-Settings"><span class="nav-number">6.1.</span> <span class="nav-text">Step1. Deployed Contract Settings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step2-NetWork-Settings"><span class="nav-number">6.2.</span> <span class="nav-text">Step2. NetWork Settings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Step3-Run-Deploy-Command"><span class="nav-number">6.3.</span> <span class="nav-text">Step3. Run Deploy Command</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Intercate-with-Deployed-Contract"><span class="nav-number">7.</span> <span class="nav-text">Intercate with Deployed Contract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modify-Contracts"><span class="nav-number">8.</span> <span class="nav-text">Modify Contracts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#New-Version-Truffle"><span class="nav-number">9.</span> <span class="nav-text">New Version Truffle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">10.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Coffee</span>
+
+  
+</div>
+
+
+
+
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+Total <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>個來到的小伙伴
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

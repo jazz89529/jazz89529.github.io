@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/02/04/testrpcAndTruffle/</loc>
+    
+    <lastmod>2018-02-04T05:02:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/01/13/JavaScript-Promise-Introduction/</loc>
     
     <lastmod>2018-01-13T10:08:43.000Z</lastmod>
