@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Struggle">
 <meta property="og:description" content="Use Truffle to Deploy Contract on Testrpc">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-02-04T05:02:08.000Z">
+<meta property="og:updated_time" content="2018-02-04T05:08:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Use Truffle to Deploy Contract on Testrpc">
 <meta name="twitter:description" content="Use Truffle to Deploy Contract on Testrpc">
@@ -358,7 +358,8 @@
       
         <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>這篇會使用到Node.js、testrpc、Solidity、Truffle等開發工具來進行教學，教學目標為使用Truffle套件來將撰寫好的智能合約部署到testrpc上。</p>
 <p>環境要求：安裝Node.js、Testrpc、Truffle</p>
-<h3 id="Start-testrpc"><a href="#Start-testrpc" class="headerlink" title="Start testrpc"></a>Start testrpc</h3><p>如果採用callback處理非同步事件，如果很多層的話，會造成Callback Hell，導致可讀性下降，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ testrpc</div></pre></td></tr></table></figure></p>
+<h3 id="Start-testrpc"><a href="#Start-testrpc" class="headerlink" title="Start testrpc"></a>Start testrpc</h3><p>在安裝好testrpc後，輸入以下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ testrpc</div></pre></td></tr></table></figure>
 <h3 id="Create-a-Project"><a href="#Create-a-Project" class="headerlink" title="Create a Project"></a>Create a Project</h3><p>開啟另一個Terminal，輸入以下命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir hello</div><div class="line">$ <span class="built_in">cd</span> hello</div><div class="line">$ truffle init</div></pre></td></tr></table></figure>
 <p>在專案目錄資料夾底下找到<strong>contracts/</strong>資料夾，這個資料夾會放該專案所包含的所有sol檔案。</p>
